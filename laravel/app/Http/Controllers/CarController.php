@@ -17,9 +17,13 @@ class CarController extends Controller
 
     public function store(CarRequest $request)
     {
-        $car = Car::create($request->all());
+        $car = Car::create([
+            'make'=>$request['make'],
+            'model'=>$request['model'],
+            'produced_on'=>$request['produced']
+        ]);
 
-        return response(['data' => $car ], 201);
+        return response(['message' => 'Car Added', 'data' => $car ], 201);
 
     }
 

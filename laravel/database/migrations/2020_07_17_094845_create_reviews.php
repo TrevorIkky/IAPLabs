@@ -15,9 +15,7 @@ class CreateReviews extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('review_id');
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('car_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
             $table->foreign('car_id')->references('car_id')->on('cars');
             $table->string('review', 500);
             $table->timestamps();
@@ -32,7 +30,6 @@ class CreateReviews extends Migration
     public function down()
     {
         Schema::table('reviews', function(Blueprint $table){
-            $table->dropForeign('user_id');
             $table->dropForeign('car_id');
         });
         Schema::dropIfExists('reviews');

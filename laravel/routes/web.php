@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/car', function () {
+    return view('car');
+});
+
+Route::post('/car/add', 'CarController@store');
+
