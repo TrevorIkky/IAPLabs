@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
-
 namespace App\Models;
 
 use Carbon\Carbon;
@@ -41,6 +37,6 @@ class Car extends Model
 
 	public function reviews()
 	{
-		return $this->hasMany(Review::class);
+		return $this->hasMany(Review::class, 'car_id');
 	}
 }

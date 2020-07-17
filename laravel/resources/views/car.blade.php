@@ -18,6 +18,15 @@
      </style>
 </head>
 <body>
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
    <div class="main-container">
    
     <form style="width: 40%; margin-top: 40px;" method="POST" action="{{url('/car/add')}}">

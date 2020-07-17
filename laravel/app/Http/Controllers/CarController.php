@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Http\Requests\CarRequest;
-
+use App\Http\Requests\StoreCarRequest;
+use Illuminate\Support\Facades\Validator;
 
 class CarController extends Controller
 {
@@ -15,15 +16,15 @@ class CarController extends Controller
         return response(['data' => $cars ], 200);
     }
 
-    public function store(CarRequest $request)
+    public function store(StoreCarRequest $request)
     {
         $car = Car::create([
             'make'=>$request['make'],
             'model'=>$request['model'],
             'produced_on'=>$request['produced']
         ]);
-
         return response(['message' => 'Car Added', 'data' => $car ], 201);
+       
 
     }
 

@@ -18,4 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('cars', 'CarController'); 
-Route::apiResource('reviews', 'ReviewController'); 
+// Route::apiResource('reviews', 'ReviewController'); 
+Route::get('/reviews/{id}', 'ReviewController@reviewsForCar');
+Route::get('/cardetails/{id}', 'ReviewController@carDetailsFromReview');
+

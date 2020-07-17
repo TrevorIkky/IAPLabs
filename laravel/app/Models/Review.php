@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
 
 namespace App\Models;
 
@@ -38,6 +35,6 @@ class Review extends Model
 
 	public function car()
 	{
-		return $this->belongsTo(Car::class);
+		return $this->belongsTo(Car::class, 'car_id');
 	}
 }
